@@ -10,6 +10,8 @@ public class Functions {
     public static final int SUM_ALL = 8;
     public static final int CALCULATE_STACK_SIZE = 9;
     public static final int EXECUTE_SINGLE_CHARACTER = 10;
+    public static final int PUSH_TOP_TO_BOTTOM = 11;
+    public static final int PUSH_BOTTOM_TO_TOP = 12;
     public static void evaluate(int f, Pointer pointer, char[][] map) {
         switch(f) {
             case PRINT_ALL:
@@ -81,6 +83,16 @@ public class Functions {
                 Stack.pop();
                 char characterToExecute = (char) charID;
                 Evaluator.evaluate(characterToExecute, pointer, map);
+                break;
+            case PUSH_TOP_TO_BOTTOM:
+                int bottom = Stack.get();
+                Stack.pop();
+                Stack.placeBottom(bottom);
+                break;
+            case PUSH_BOTTOM_TO_TOP:
+                int top = Stack.getBottom();
+                Stack.popBottom();
+                Stack.put(top);
                 break;
             default:
                 System.out.println("[INTERPRETER WARNING] FUNCTION ID INVALID: "+f); // DEFAULT PRINT MESSAGE
