@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Functions {
     public static final int PRINT_ALL = 0;
     public static final int PRINT_ALL_AS_INTEGERS = 1;
@@ -12,6 +14,8 @@ public class Functions {
     public static final int EXECUTE_SINGLE_CHARACTER = 10;
     public static final int PUSH_TOP_TO_BOTTOM = 11;
     public static final int PUSH_BOTTOM_TO_TOP = 12;
+    public static final int STACK_MAX = 13;
+    public static final int STACK_MIN = 14;
     public static void evaluate(int f, Pointer pointer, char[][] map) {
         switch(f) {
             case PRINT_ALL:
@@ -93,6 +97,26 @@ public class Functions {
                 int top = Stack.getBottom();
                 Stack.popBottom();
                 Stack.put(top);
+                break;
+            case STACK_MAX:
+                int max = 0;
+                ArrayList<Integer> stack = Stack.getAll();
+                for (int item : stack) {
+                    if (item > max) {
+                        max = item;
+                    }
+                }
+                Stack.put(max);
+                break;
+            case STACK_MIN:
+                int min = 0;
+                ArrayList<Integer> fullStackForMinOperation = Stack.getAll();
+                for (int item : fullStackForMinOperation) {
+                    if (item > min) {
+                        min = item;
+                    }
+                }
+                Stack.put(min);
                 break;
             default:
                 System.out.println("[INTERPRETER WARNING] FUNCTION ID INVALID: "+f); // DEFAULT PRINT MESSAGE

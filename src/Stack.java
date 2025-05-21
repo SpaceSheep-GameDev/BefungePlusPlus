@@ -60,4 +60,12 @@ public class Stack {
         }
         stack.removeLast();
     }
+
+    /**
+     * USE WITH CAUTION
+     * @return THE STACK OBJECT
+     */
+    public static ArrayList<Integer> getAll() {
+        return stack;
+    }
 }

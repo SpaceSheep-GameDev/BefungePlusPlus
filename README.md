@@ -4,6 +4,7 @@ This is a Befunge 93 interpreter written in Java using IntelliJ.
   * Stack clearing: use the 's' symbol to clear the whole stack
   * Stack reversal: use the 'r' symbol to reverse the stack's order
   * The Function Library: use the 'f' symbol to execute the function associated with the Stack's top integer
+  * Custom sized Befunge projects
 # Functions
 Functions were added as a way of making more options for developers without having to learn new characters. Functions can be called by pushing a number to the stack and using the 'f' symbol to call them.
 Currently, there are 8 functions:
@@ -20,4 +21,6 @@ Currently, there are 8 functions:
   <li>Pop the character at the top of the stack, then execute it as if it were part of the program (10)</li>
   <li>Move the value at the top of the Stack to the bottom of the Stack (11)</li>
   <li>Move the value at the bottom of the Stack to the top of the Stack (12)</li>
+  <li>Calculate the highest integer in the Stack and push a copy of that integer to the top of the Stack (13)</li>
+  <li>Calculate the lowest integer in the Stack and push a copy of that integer to the top of the Stack (14)</li>
 If the function called is out of bounds, it will be ignored.
