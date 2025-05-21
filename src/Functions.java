@@ -99,8 +99,8 @@ public class Functions {
                 Stack.put(top);
                 break;
             case STACK_MAX:
-                int max = 0;
                 ArrayList<Integer> stack = Stack.getAll();
+                int max = stack.getFirst();
                 for (int item : stack) {
                     if (item > max) {
                         max = item;
@@ -109,8 +109,8 @@ public class Functions {
                 Stack.put(max);
                 break;
             case STACK_MIN:
-                int min = 0;
                 ArrayList<Integer> fullStackForMinOperation = Stack.getAll();
+                int min = fullStackForMinOperation.getFirst();
                 for (int item : fullStackForMinOperation) {
                     if (item > min) {
                         min = item;
