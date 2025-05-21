@@ -31,16 +31,16 @@ public class Pointer {
             y += 1;
         }
         if (x < 0) {
-            x = 79;
+            x = Main.X_SIZE-1;
         }
-        if (x >= 80) {
+        if (x >= Main.X_SIZE) {
             x = 0;
         }
-        if (y >= 25) {
+        if (y >= Main.Y_SIZE) {
             y = 0;
         }
         if (y < 0) {
-            y = 24;
+            y = Main.Y_SIZE-1;
         }
     }
 }
