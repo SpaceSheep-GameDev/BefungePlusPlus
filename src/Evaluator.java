@@ -10,128 +10,131 @@ public class Evaluator {
             if (c == '<') {
                 pointer.setDirection(Pointer.LEFT);
             }
-            if (c == '>') {
+            else if (c == '>') {
                 pointer.setDirection(Pointer.RIGHT);
             }
-            if (c == 'v') {
+            else if (c == 'v') {
                 pointer.setDirection(Pointer.DOWN);
             }
-            if (c == '^') {
+            else if (c == '^') {
                 pointer.setDirection(Pointer.UP);
             }
-            if (c == '@') {
+            else if (c == '@') {
                 Main.running = false;
             }
-            if (c == ',') {
+            else if (c == ',') {
                 System.out.print((char) Stack.get());
                 Stack.pop();
             }
-            if (c == '.') {
+            else if (c == '.') {
                 System.out.print(Stack.get());
                 Stack.pop();
             }
-            if (c == '1') {
+            else if (c == '0') {
+                Stack.put(0);
+            }
+            else if (c == '1') {
                 Stack.put(1);
             }
-            if (c == '2') {
+            else if (c == '2') {
                 Stack.put(2);
             }
-            if (c == '3') {
+            else if (c == '3') {
                 Stack.put(3);
             }
-            if (c == '4') {
+            else if (c == '4') {
                 Stack.put(4);
             }
-            if (c == '5') {
+            else if (c == '5') {
                 Stack.put(5);
             }
-            if (c == '6') {
+            else if (c == '6') {
                 Stack.put(6);
             }
-            if (c == '7') {
+            else if (c == '7') {
                 Stack.put(7);
             }
-            if (c == '8') {
+            else if (c == '8') {
                 Stack.put(8);
             }
-            if (c == '9') {
+            else if (c == '9') {
                 Stack.put(9);
             }
-            if (c == '+') {
+            else if (c == '+') {
                 int i = Stack.get();
                 Stack.pop();
                 int j = Stack.get();
                 Stack.pop();
                 Stack.put(i+j);
             }
-            if (c == '-') {
+            else if (c == '-') {
                 int i = Stack.get();
                 Stack.pop();
                 int j = Stack.get();
                 Stack.pop();
-                Stack.put(i-j);
+                Stack.put(j-i);
             }
-            if (c == '*') {
+            else if (c == '*') {
                 int i = Stack.get();
                 Stack.pop();
                 int j = Stack.get();
                 Stack.pop();
-                Stack.put(i*j);
+                Stack.put(j*i);
             }
-            if (c == '/') {
+            else if (c == '/') {
                 int i = Stack.get();
                 Stack.pop();
                 int j = Stack.get();
                 Stack.pop();
-                Stack.put(i/j);
+                Stack.put(j/i);
             }
-            if (c == '%') {
+            else if (c == '%') {
                 int i = Stack.get();
                 Stack.pop();
                 int j = Stack.get();
                 Stack.pop();
-                Stack.put(i%j);
+                Stack.put(j%i);
             }
-            if (c == '!') {
+            else if (c == '!') {
                 int i = Stack.get();
                 Stack.pop();
                 Stack.put(i == 0 ? 1 : 0);
             }
-            if (c == '?') {
+            else if (c == '?') {
                 int dir = random.nextInt(4);
                 pointer.setDirection(dir);
             }
-            if (c == '`') {
+            else if (c == '`') {
                 int i = Stack.get();
                 Stack.pop();
                 int j = Stack.get();
                 Stack.pop();
                 Stack.put(j > i ? 1 : 0);
             }
-            if (c == '#') {
+            else if (c == '#') {
                 pointer.move();
                 return;
             }
-            if (c == '~') {
+            else if (c == '~') {
                 Stack.put(scanner.next().toCharArray()[0]);
             }
-            if (c == '&') {
+            else if (c == '&') {
                 Stack.put(scanner.nextInt());
             }
-            if (c == ':') {
+            else if (c == ':') {
                 Stack.duplicate();
             }
-            if (c == '$') {
+            else if (c == '$') {
                 Stack.pop();
             }
-            if (c == 'g') {
+            else if (c == 'g') {
                 int y = Stack.get();
                 Stack.pop();
                 int x = Stack.get();
                 Stack.pop();
-                Stack.put(map[y][x]);
+                Stack.put((int) map[y][x]);
             }
-            if (c == 'p') {
+            else if (c == 'p') {
                 int y = Stack.get();
                 Stack.pop();
                 int x = Stack.get();
@@ -140,10 +143,10 @@ public class Evaluator {
                 Stack.pop();
                 map[y][x] = (char) v;
             }
-            if (c == '\\') {
+            else if (c == '\\') {
                 Stack.swap();
             }
-            if (c == '_') {
+            else if (c == '_') {
                 int val = Stack.get();
                 Stack.pop();
                 if (val != 0) {
@@ -152,7 +155,7 @@ public class Evaluator {
                     pointer.setDirection(Pointer.RIGHT);
                 }
             }
-            if (c == '|') {
+            else if (c == '|') {
                 int val = Stack.get();
                 Stack.pop();
                 if (val != 0) {
@@ -160,6 +163,24 @@ public class Evaluator {
                 } else {
                     pointer.setDirection(Pointer.DOWN);
                 }
+            }
+            else if (c =='r') {
+                Stack.flip();
+            }
+            else if (c == 's') {
+                Stack.clear();
+            }
+            else if (c == 'c') {
+                int y = Stack.get();
+                Stack.pop();
+                int x = Stack.get();
+                Stack.pop();
+                map[y][x] = ' ';
+            }
+            else if (c == 'f') {
+                int function = Stack.get();
+                Stack.pop();
+                Functions.evaluate(function, pointer, map);
             }
         } if (c == '"') {
             string = !string;

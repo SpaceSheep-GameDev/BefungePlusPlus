@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Stack {
-    private static ArrayList<Integer> stack = new ArrayList<>();
+    private static final ArrayList<Integer> stack = new ArrayList<>();
     public static int get() {
         if (stack.isEmpty()) {
             return 0;
@@ -18,6 +19,9 @@ public class Stack {
         stack.addFirst(i);
     }
     public static void swap() {
+        if (stack.size() < 2) {
+            return;
+        }
         int i1 = stack.getFirst();
         int i2 = stack.get(1);
         stack.set(0, i2);
@@ -25,5 +29,14 @@ public class Stack {
     }
     public static void duplicate() {
         stack.addFirst(stack.getFirst());
+    }
+    public static void flip() {
+        Collections.reverse(stack);
+    }
+    public static void clear() {
+        stack.clear();
+    }
+    public static boolean hasItem() {
+        return !stack.isEmpty();
     }
 }
