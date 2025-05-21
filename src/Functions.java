@@ -112,7 +112,7 @@ public class Functions {
                 ArrayList<Integer> fullStackForMinOperation = Stack.getAll();
                 int min = fullStackForMinOperation.getFirst();
                 for (int item : fullStackForMinOperation) {
-                    if (item > min) {
+                    if (item < min) {
                         min = item;
                     }
                 }
