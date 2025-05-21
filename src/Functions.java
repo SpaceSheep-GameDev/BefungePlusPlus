@@ -16,6 +16,9 @@ public class Functions {
     public static final int PUSH_BOTTOM_TO_TOP = 12;
     public static final int STACK_MAX = 13;
     public static final int STACK_MIN = 14;
+    public static final int REMOVE_NEGATIVE = 15;
+    public static final int FACTORIAL = 16;
+    public static final int ABS = 17;
     public static void evaluate(int f, Pointer pointer, char[][] map) {
         switch(f) {
             case PRINT_ALL:
@@ -117,6 +120,29 @@ public class Functions {
                     }
                 }
                 Stack.put(min);
+                break;
+            case REMOVE_NEGATIVE:
+                ArrayList<Integer> wholeStack = Stack.getAll();
+                for (int i : wholeStack) {
+                    if (i < 0) {
+                        wholeStack.remove(i);
+                    }
+                }
+                break;
+            //OVERFLOW??
+            case FACTORIAL:
+                int i = Stack.get();
+                Stack.pop();
+                Stack.put(Main.factorial(i));
+                break;
+            case ABS:
+                ArrayList<Integer> list = Stack.getAll();
+                int size = list.size();
+                for (int in = 0; in < size; in++) {
+                    if (list.get(in) < 0) {
+                        list.set(in, -list.get(in));
+                    }
+                }
                 break;
             default:
                 System.out.println("[INTERPRETER WARNING] FUNCTION ID INVALID: "+f); // DEFAULT PRINT MESSAGE
