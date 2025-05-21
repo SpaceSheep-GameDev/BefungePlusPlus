@@ -15,4 +15,7 @@ Currently, there are 8 functions:
   <li>Pop the two latest numbers <code>a</code> and <code>b</code> and push a number between <code>a</code> and <code>b-1</code> (5)</li>
   <li>Pop the latest number <code>a</code> and print the <code>a</code> next items on the Stack as characters (6)</li>
   <li>Pop the latest number <code>a</code> and print the <code>a</code> next items on the Stack as integers (7)</li>
+  <li>Clear the stack and push the sum of all numbers that were on it (8) </li>
+  <li>Push the length of the stack on the stack (9)</li>
+  <li>Pop the character at the top of the stack, then execute it as if it were part of the program (10)</li>
 If the function called is out of bounds, it will be ignored.

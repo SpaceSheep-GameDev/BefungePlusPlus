@@ -39,4 +39,7 @@ public class Stack {
     public static boolean hasItem() {
         return !stack.isEmpty();
     }
+    public static int size() {
+        return stack.size();
+    }
 }

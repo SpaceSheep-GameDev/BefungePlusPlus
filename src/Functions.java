@@ -7,6 +7,9 @@ public class Functions {
     public static final int PUSH_RANDOM_NUMBER_WITH_BOTH_BOUNDS = 5;
     public static final int PRINT_WITH_LENGTH = 6;
     public static final int PRINT_AS_INTEGER_WITH_LENGTH = 7;
+    public static final int SUM_ALL = 8;
+    public static final int CALCULATE_STACK_SIZE = 9;
+    public static final int EXECUTE_SINGLE_CHARACTER = 10;
     public static void evaluate(int f, Pointer pointer, char[][] map) {
         switch(f) {
             case PRINT_ALL:
@@ -57,6 +60,24 @@ public class Functions {
                     System.out.print(gotten);
                 }
                 break;
+            case SUM_ALL:
+                int sum = 0;
+                while (Stack.hasItem()) {
+                    sum += Stack.get();
+                    Stack.pop();
+                } Stack.put(sum);
+                break;
+            case CALCULATE_STACK_SIZE:
+                Stack.put(Stack.size()); // DOES NOT ACCOUNT FOR NEW INT
+                break;
+            case EXECUTE_SINGLE_CHARACTER:
+                int charID = Stack.get();
+                Stack.pop();
+                char characterToExecute = (char) charID;
+                Evaluator.evaluate(characterToExecute, pointer, map);
+                break;
+            default:
+                System.out.println("[INTERPRETER WARNING] FUNCTION ID INVALID: "+f); // DEFAULT PRINT MESSAGE
         }
     }
 }
