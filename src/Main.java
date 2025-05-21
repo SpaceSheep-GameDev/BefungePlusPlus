@@ -9,7 +9,8 @@ public class Main {
         StringBuilder builder = new StringBuilder();
         X_SIZE = Integer.parseInt(args[0]);
         Y_SIZE = Integer.parseInt(args[1]);
-        for (String s : args) {
+        for (int i = 2; i < args.length; i++) {
+            String s = args[i];
             builder.append(s);
         }
         String path = builder.toString();

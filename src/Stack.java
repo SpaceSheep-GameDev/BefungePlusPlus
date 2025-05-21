@@ -10,6 +10,9 @@ public class Stack {
         return stack.getFirst();
     }
     public static void pop() {
+        if (stack.isEmpty()) {
+            return;
+        }
         stack.removeFirst();
     }
     public static void put(int i) {
@@ -25,6 +28,9 @@ public class Stack {
         stack.set(1, i1);
     }
     public static void duplicate() {
+        if (stack.isEmpty()) {
+            return;
+        }
         stack.addFirst(stack.getFirst());
     }
     public static void flip() {
@@ -40,12 +46,18 @@ public class Stack {
         return stack.size();
     }
     public static int getBottom() {
+        if (stack.isEmpty()) {
+            return 0;
+        }
         return stack.getLast();
     }
     public static void placeBottom(int i) {
         stack.add(i);
     }
     public static void popBottom() {
+        if (stack.isEmpty()) {
+            return;
+        }
         stack.removeLast();
     }
 }
