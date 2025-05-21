@@ -21,6 +21,7 @@ public class Main {
             Evaluator.evaluate(pointer.get(file), pointer, file);
             pointer.move();
         }
+        System.out.println();
         System.out.println("The program has finished execution.");
     }
     public static char[][] load(String path) {

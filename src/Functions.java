@@ -19,6 +19,9 @@ public class Functions {
     public static final int REMOVE_NEGATIVE = 15;
     public static final int FACTORIAL = 16;
     public static final int ABS = 17;
+    public static final int PRINT_ALL_REVERSE = 18;
+    public static final int PRINT_ALL_AS_INTEGERS_REVERSE = 19;
+    public static final int WAIT = 20;
     public static void evaluate(int f, Pointer pointer, char[][] map) {
         switch(f) {
             case PRINT_ALL:
@@ -142,6 +145,23 @@ public class Functions {
                     if (list.get(in) < 0) {
                         list.set(in, -list.get(in));
                     }
+                }
+                break;
+            case PRINT_ALL_REVERSE:
+                Stack.flip();
+                evaluate(PRINT_ALL, pointer, map);
+                break;
+            case PRINT_ALL_AS_INTEGERS_REVERSE:
+                Stack.flip();
+                evaluate(PRINT_ALL_AS_INTEGERS, pointer, map);
+                break;
+            case WAIT:
+                int millis = Stack.get();
+                Stack.pop();
+                try {
+                    Thread.sleep(millis);
+                } catch (InterruptedException e) {
+                    System.out.println("[INTERPRETER WARNING] WAITING FUNCTION INTERRUPTED (NOT YOUR FAULT)");
                 }
                 break;
             default:
