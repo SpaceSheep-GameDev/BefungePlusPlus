@@ -16,6 +16,7 @@ public class Main {
             Evaluator.evaluate(pointer.get(file), pointer, file);
             pointer.move();
         }
+        System.out.println("The program has finished execution.");
     }
     public static char[][] load(String path) {
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
