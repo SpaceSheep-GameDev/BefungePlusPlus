@@ -126,11 +126,7 @@ public class Functions {
                 break;
             case REMOVE_NEGATIVE:
                 ArrayList<Integer> wholeStack = Stack.getAll();
-                for (int i : wholeStack) {
-                    if (i < 0) {
-                        wholeStack.remove(i);
-                    }
-                }
+                wholeStack.removeIf(i -> i < 0);
                 break;
             //OVERFLOW??
             case FACTORIAL:

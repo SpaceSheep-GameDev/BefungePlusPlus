@@ -18,8 +18,12 @@ public class Main {
         assert file != null;
         Pointer pointer = new Pointer();
         while (running) {
-            Evaluator.evaluate(pointer.get(file), pointer, file);
-            pointer.move();
+            try {
+                Evaluator.evaluate(pointer.get(file), pointer, file);
+                pointer.move();
+            } catch (RuntimeException e) {
+                System.out.println("[INTERPRETER WARNING] SOMETHING UNKNOWN HAS GONE WRONG: "+e.getMessage());
+            }
         }
         System.out.println();
         System.out.println("The program has finished execution.");
