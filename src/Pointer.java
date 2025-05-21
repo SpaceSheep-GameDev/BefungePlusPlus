@@ -43,7 +43,4 @@ public class Pointer {
             y = 24;
         }
     }
-    public String getPositionAsString() {
-        return x + " " + y;
-    }
 }
