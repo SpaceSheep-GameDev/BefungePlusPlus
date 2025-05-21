@@ -31,6 +31,7 @@ Currently, there are 22 functions:
   <li>Pop <code>a</code>, then wait <code>a</code> milliseconds before resuming the program (20)</li>
   <li>Clear all items except for the top of the Stack (21)</li>
 If the function called is out of bounds, it will be ignored.
+
 # TODO
 * Implement full string input function
 * Implement user-defined functions
