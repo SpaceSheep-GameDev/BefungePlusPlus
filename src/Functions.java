@@ -27,6 +27,9 @@ public class Functions {
                 break;
             case PUSH_RANDOM_NUMBER_WITH_UPPER_BOUND:
                 int upperBound = Stack.get();
+                if (upperBound <= 0) {
+                    System.out.println("[INTERPRETER WARNING] UPPER BOUND MUST BE ABOVE 0. CURRENT VALUE: " + upperBound);
+                }
                 Stack.pop();
                 Stack.put(Evaluator.random.nextInt(upperBound));
                 break;
@@ -39,6 +42,9 @@ public class Functions {
                 int upper = Stack.get();
                 Stack.pop();
                 int lower = Stack.get();
+                if (upper <= lower) {
+                    System.out.println("[INTERPRETER WARNING] UPPER BOUND MUST BE ABOVE LOWER BOUND. CURRENT VALUES: " + upper + ", " + lower);
+                }
                 Stack.pop();
                 Stack.put(Evaluator.random.nextInt(lower, upper));
                 break;
