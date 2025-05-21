@@ -18,4 +18,6 @@ Currently, there are 8 functions:
   <li>Clear the stack and push the sum of all numbers that were on it (8) </li>
   <li>Push the length of the stack on the stack (9)</li>
   <li>Pop the character at the top of the stack, then execute it as if it were part of the program (10)</li>
+  <li>Move the value at the top of the Stack to the bottom of the Stack (11)</li>
+  <li>Move the value at the bottom of the Stack to the top of the Stack (12)</li>
 If the function called is out of bounds, it will be ignored.
