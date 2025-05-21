@@ -7,7 +7,7 @@ This is a Befunge 93 interpreter written in Java using IntelliJ.
   * Custom sized Befunge projects
 # Functions
 Functions were added as a way of making more options for developers without having to learn new characters. Functions can be called by pushing a number to the stack and using the 'f' symbol to call them.
-Currently, there are 21 functions:
+Currently, there are 22 functions:
   <li>Print the whole stack as characters (0)</li>
   <li>Print the whole stack as integers (1)</li>
   <li>Push a random number from 0 to 255 to the top of the Stack (2)</li>
@@ -29,6 +29,7 @@ Currently, there are 21 functions:
   <li>Print all items on the stack as characters, but in reverse (18)</li>
   <li>Print all items on the stack as integers, but in reverse (19)</li>
   <li>Pop <code>a</code>, then wait <code>a</code> milliseconds before resuming the program (20)</li>
+  <li>Clear all items except for the top of the Stack (21)</li>
 If the function called is out of bounds, it will be ignored.
 # TODO
 * Implement full string input function

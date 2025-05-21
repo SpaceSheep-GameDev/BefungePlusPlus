@@ -22,6 +22,7 @@ public class Functions {
     public static final int PRINT_ALL_REVERSE = 18;
     public static final int PRINT_ALL_AS_INTEGERS_REVERSE = 19;
     public static final int WAIT = 20;
+    public static final int CLEAR_EXCEPT_TOP = 21;
     public static void evaluate(int f, Pointer pointer, char[][] map) {
         switch(f) {
             case PRINT_ALL:
@@ -132,7 +133,12 @@ public class Functions {
             case FACTORIAL:
                 int i = Stack.get();
                 Stack.pop();
-                Stack.put(Main.factorial(i));
+                if (i < 0) {
+                    System.out.println("[INTERPRETER WARNING] FACTORIAL OF NEGATIVE NUMBER: " + i);
+                    Stack.put(0);
+                } else {
+                    Stack.put(Main.factorial(i));
+                }
                 break;
             case ABS:
                 ArrayList<Integer> list = Stack.getAll();
@@ -159,6 +165,11 @@ public class Functions {
                 } catch (InterruptedException e) {
                     System.out.println("[INTERPRETER WARNING] WAITING FUNCTION INTERRUPTED (NOT YOUR FAULT)");
                 }
+                break;
+            case CLEAR_EXCEPT_TOP:
+                int topOfStack = Stack.get();
+                Stack.clear();
+                Stack.put(topOfStack);
                 break;
             default:
                 System.out.println("[INTERPRETER WARNING] FUNCTION ID INVALID: "+f); // DEFAULT PRINT MESSAGE
