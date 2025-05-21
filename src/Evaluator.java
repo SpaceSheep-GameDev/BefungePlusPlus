@@ -132,7 +132,7 @@ public class Evaluator {
                 Stack.pop();
                 int x = Stack.get();
                 Stack.pop();
-                Stack.put((int) map[y][x]);
+                Stack.put(map[y][x]);
             }
             else if (c == 'p') {
                 int y = Stack.get();
